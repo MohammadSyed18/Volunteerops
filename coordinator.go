@@ -34,7 +34,7 @@ func New() *Coordinator {
 func (c *Coordinator) AddVolunteer(v Volunteer) error {
 	c.mu.Lock()
 	defer c.mu.Unlock()
-	if v.ID == "" || !v.AvailableTo.After(v.AvailableFrom) {
+	if v.ID == "" || v.Assignments != 0 || !v.AvailableTo.After(v.AvailableFrom) {
 		return errors.New("invalid volunteer")
 	}
 	if _, ok := c.volunteers[v.ID]; ok {
