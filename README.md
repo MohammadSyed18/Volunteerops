@@ -1,5 +1,10 @@
 # Volunteerops
 
-A Go service for concurrency-safe volunteer and shift coordination. The core enforces availability, skills, capacity, overlap conflicts, cancellations, waitlist promotion, age/training/workload policies, fair candidate ranking, weekly-minute calculations, and shift fill reports. A small HTTP API exposes volunteer, shift, and request creation.
+Volunteer shifts in Go. Handles availability, skills, capacity, overlapping assignments, cancellations, and waitlists, with a small HTTP API.
 
-Run `go test -race ./...` and `go run ./cmd/server`. The `sample/` requests contain invented demonstration data for the three POST endpoints. State is intentionally in memory; authentication, durable event storage, and organization-specific eligibility policies remain future work.
+```sh
+go test -race ./...
+go run ./cmd/server
+```
+
+There are example requests for the three POST endpoints in `sample/`. The data is invented and state stays in memory. Authentication, persistent storage, and organization-specific eligibility rules are still missing.
